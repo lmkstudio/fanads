@@ -8,15 +8,19 @@
   onlogin="getLoginStatus();">
 </fb:login-button>
 		
+		<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '305201660145007',
-      cookie     : true,
       xfbml      : true,
-      version    : 'v12.0'
+      version    : 'v18.0'
     });
-      
     FB.AppEvents.logPageView();
   };
 
@@ -27,12 +31,6 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-
-  function getLoginStatus() {
-  	FB.getLoginStatus(function(response) {
-    	console.log(response);
-	});
-  }
 </script>
 	</body>
 </html>
