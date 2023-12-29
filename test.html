@@ -1,11 +1,38 @@
 <html>
 	<title>Test Open App</title>
 	<body>
-		<button>
-			<a href="liquidapp://lqd-preview-7452.web.dev.quoine.me/confirm?action=ip-confirm&confirmation_token=jW7ftZebLURkT-z_CSzB&login_id=6462330">Open app</a>
-		</button>
-		<script type="text/javascript">
-			window.location = "liquidapp://lqd-preview-7452.web.dev.quoine.me/confirm?action=ip-confirm&confirmation_token=jW7ftZebLURkT-z_CSzB&login_id=6462330"
-		</script>
+		<button onclick="getLoginStatus()">Check Status</button>
+
+		<fb:login-button 
+  config_id="1006344093770834"
+  onlogin="getLoginStatus();">
+</fb:login-button>
+		
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '305201660145007',
+      cookie     : true,
+      xfbml      : true,
+      version    : '12.0'
+    });
+      
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+  function getLoginStatus() {
+  	FB.getLoginStatus(function(response) {
+    	console.log(response);
+	});
+  }
+</script>
 	</body>
 </html>
